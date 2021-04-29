@@ -1,0 +1,34 @@
+{
+    "name": "aqua-delivery/marking-code-converter",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Sergey Logachev",
+            "email": "serg@baitek.org"
+        }
+    ],
+    "require": {
+        "webmozart/assert": "^1.10"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.5.15",
+        "friendsofphp/php-cs-fixer": "^2.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cvek\\MarkConverter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Cvek\\MarkConverter\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "platform": {
+            "php": "7.2.5"
+        }
+    }
+}
