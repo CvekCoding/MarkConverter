@@ -24,6 +24,25 @@ class ConverterTest extends TestCase
         self::assertSame('44 4D 04 36 03 89 39 FC 53 78 4D 47 6F 72 76 4E 75 71 36 57 6B', $hex);
     }
 
+    public function testTrim(): void
+    {
+        $code = ' 010463003407001221SxMGorvNuq6Wk';
+
+        $hex = (new Converter())($code);
+
+        self::assertSame('44 4D 04 36 03 89 39 FC 53 78 4D 47 6F 72 76 4E 75 71 36 57 6B', $hex);
+    }
+
+    /** Code may come with control character 93 */
+    public function testWithControlKey(): void
+    {
+        $code = '010463003407001221SxMGorvNuq6Wk936W7E';
+
+        $hex = (new Converter())($code);
+
+        self::assertSame('44 4D 04 36 03 89 39 FC 53 78 4D 47 6F 72 76 4E 75 71 36 57 6B', $hex);
+    }
+
     public function testShortMark(): void
     {
         $code = '010463003407001221SxMGorvNuq6W';
