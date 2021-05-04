@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 
 class ConverterTest extends TestCase
 {
-    public function testGoodMark(): void
+    public function testSimpleStringGoodMark(): void
     {
         $code = '010463003407001221SxMGorvNuq6Wk';
 
@@ -34,9 +34,9 @@ class ConverterTest extends TestCase
     }
 
     /** Code may come with control character 93 */
-    public function testWithControlKey(): void
+    public function testWithControlChars(): void
     {
-        $code = '010463003407001221SxMGorvNuq6Wk936W7E';
+        $code = mb_chr(0x1d, 'UTF-8').'010463003407001221SxMGorvNuq6Wk'.mb_chr(0x1d, 'UTF-8').'936W7E';
 
         $hex = (new Converter())($code);
 
