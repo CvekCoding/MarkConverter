@@ -38,6 +38,11 @@ final class Mark
         return trim(chunk_split($hex, 2, ' '));
     }
 
+    public function getHexWithoutSplitting(): string
+    {
+        return trim(self::DATA_MATRIX_PREFIX.$this->getGtinHex().$this->getSerialHex());
+    }
+
     private function getGtinHex(): string
     {
         return sprintf('%012X', $this->gtin);
